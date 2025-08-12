@@ -33,17 +33,15 @@ if (chartSection) {
     }, { rootMargin: '300px' })
     ioChart.observe(chartSection)
   }
-}
+} 
 
-const isMobile = matchMedia('(max-width: 767px)').matches
-const hasHover = matchMedia('(hover: hover)').matches
-
-const bubblesEl = document.querySelector('[data-bubbles]')
-
-// DESKTOP: meteen laden (zonder window.onload), maar 2× rAF voor stabiele layout
-if (bubblesEl && hasHover && !isMobile) {
-  const start = () => import('./floating-bubbles.js').then(m => m.initBubbles?.(bubblesEl))
-  requestAnimationFrame(() => requestAnimationFrame(start)) // praktisch “direct”
-
+// 3) Bubbles: alleen op desktop met hover, en alleen als element bestaat
+const bubblesContainer = document.querySelector('[data-bubbles]')
+if (bubblesContainer && hasHover && !isMobile) {
+  const loadBubbles = () => import('./floating-bubbles.js').then(m => m.initBubbles?.())
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadBubbles, { timeout: 2000 }) // uitgesteld om TBT te sparen
+  } else {
+    setTimeout(loadBubbles, 0)
   }
 }

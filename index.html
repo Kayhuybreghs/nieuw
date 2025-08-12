@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Hier komt je head-inhoud, zoals meta-tags, title, links naar CSS, en script-tags voor modules -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corner AI - E-Commerce Revolutionized with AI</title>
+ 
+    <script>
+        // Critical CSS content for mobile viewports
+        const criticalCss = `
+            /* Basic Resets & Body */
+            body {
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                line-height: 1.5;
+                color: #1a202c; /* Dark text color */
+                background-color: #f7fafc; /* Light background */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Header */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+                background-color: #ffffff;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .header-logo-initial {
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: #4299e1; /* Example blue for initial */
+            }
+
+            .header-logo-text {
+                font-weight: 600;
+                font-size: 1.125rem;
+                color: #2d3748; /* Darker text for logo */
+            }
+
+            .header-buttons {
+                display: flex;
+                gap: 0.75rem;
+            }
+
+            .header-button {
+                padding: 0.5rem 1rem;
+                border-radius: 0.375rem; /* md */
+                font-size: 0.875rem; /* sm */
+                font-weight: 500;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            .header-button.secondary {
+                background-color: #edf2f7; /* Light gray */
+                color: #2d3748;
+                border: 1px solid #e2e8f0;
+            }
+
+            .header-button.primary {
+                background-color: #4299e1; /* Blue */
+                color: #ffffff;
+                border: 1px solid #4299e1;
+            }
+
+            /* Hero Section */
+            .hero-section {
+                padding: 3rem 1.5rem;
+                text-align: center;
+                background-color: #ffffff;
+            }
+
+            .hero-title {
+                font-size: 2.25rem; /* 3xl */
+                font-weight: 800;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+                color: #2d3748;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem; /* lg */
+                color: #4a5568;
+                margin-bottom: 2rem;
+            }
+
+            .email-form-container {
+                max-width: 24rem; /* md */
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+
+            .email-input-group {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .email-input {
+                width: 100%;
+                padding: 0.75rem 1rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.5rem; /* lg */
+                font-size: 1rem;
+                color: #4a5568;
+            }
+
+            .email-input::placeholder {
+                color: #a0aec0;
+            }
+
+            .checkbox-text {
+                display: flex;
+                align-items: center;
+                justify-content: center; /* Centered for mobile */
+                font-size: 0.875rem; /* sm */
+                color: #4a5568;
+                gap: 0.5rem;
+            }
+
+            .checkbox-icon {
+                color: #38a169; /* Green */
+                font-size: 1rem;
+            }
+
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 0.75rem 1.5rem;
+                background-color: #f6ad55; /* Orange-ish */
+                color: #ffffff;
+                border: none;
+                border-radius: 0.5rem; /* lg */
+                font-size: 1.125rem; /* lg */
+                font-weight: 700;
+                cursor: pointer;
+                gap: 0.5rem;
+                margin-top: 1.5rem; /* Space after email input */
+            }
+
+            .contact-button-icon {
+                font-size: 1.25rem; /* xl */
+            }
+
+            /* Chat Section */
+            .chat-section {
+                background-color: #ffffff;
+                padding: 2rem 1.5rem;
+                margin: 2rem auto;
+                max-width: 32rem; /* lg */
+                border-radius: 0.75rem; /* xl */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+
+            .chat-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .chat-avatar {
+                width: 2.5rem; /* w-10 */
+                height: 2.5rem; /* h-10 */
+                border-radius: 9999px; /* full */
+                background-color: #a0aec0; /* Gray */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
+                color: #ffffff;
+                font-size: 1.125rem; /* lg */
+                margin-right: 0.75rem;
+            }
+
+            .chat-info h3 {
+                margin: 0;
+                font-size: 1rem;
+                font-weight: 600;
+                color: #2d3748;
+            }
+
+            .chat-info p {
+                margin: 0;
+                font-size: 0.75rem; /* xs */
+                color: #718096;
+            }
+
+            .chat-messages {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .chat-message-wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .chat-message {
+                max-width: 85%; /* Adjusted for mobile */
+                padding: 0.75rem 1rem;
+                border-radius: 0.75rem; /* xl */
+                line-height: 1.4;
+                font-size: 0.9375rem; /* ~15px */
+                word-wrap: break-word;
+            }
+
+            .chat-message.khcustomweb {
+                background-color: #e2e8f0; /* Light gray */
+                align-self: flex-start;
+                border-bottom-left-radius: 0.25rem; /* sm for the "pointy" part */
+            }
+
+            .chat-message.klant {
+                background-color: #c6f6d5; /* Light green */
+                align-self: flex-end;
+                border-bottom-right-radius: 0.25rem; /* sm for the "pointy" part */
+            }
+
+            .chat-message-meta {
+                font-size: 0.6875rem; /* smaller than xs */
+                color: #718096;
+                margin-top: 0.25rem;
+            }
+
+            .chat-message.klant .chat-message-meta {
+                align-self: flex-end;
+            }
+        `;
+
+        // Check if the viewport width is considered mobile (e.g., <= 768px)
+        // Je kunt '768' aanpassen als je een ander breakpoint voor mobiel wilt gebruiken.
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            // For mobile: Inject critical CSS directly
+            const styleTag = document.createElement('style');
+            styleTag.textContent = criticalCss;
+            document.head.appendChild(styleTag);
+
+            // For mobile: Load the main stylesheet asynchronously
+            const linkTag = document.createElement('link');
+            linkTag.rel = 'stylesheet';
+            linkTag.href = '/style.css';
+            linkTag.media = 'print'; // Initially set to 'print' to prevent render-blocking
+            linkTag.onload = function() {
+                this.media = 'all'; // Change to 'all' once loaded
+            };
+            document.head.appendChild(linkTag);
+        } else {
+            // For desktop: Load the main stylesheet normally
+            const linkTag = document.createElement('link');
+            linkTag.rel = 'stylesheet';
+            linkTag.href = '/style.css';
+            document.head.appendChild(linkTag);
+        }
+    </script>
+
+    <!-- Fallback for browsers with JavaScript disabled (loads full CSS for all) -->
+    <noscript>
+        <link rel="stylesheet" href="/style.css">
+    </noscript>
+
+    <!-- Zorg ervoor dat main.js nog steeds wordt geladen, bij voorkeur met 'defer' -->
+    <script type="module" src="/main.js" defer></script>
+</head>
+  
+
+<body>
+    <div id="app"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <div class="logo-icon">D</div>
+                    <span class="logo-text">Corner AI</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Services <span class="dropdown-arrow">▼</span></a>
+                    <a href="#" class="nav-link">Blog</a>
+                    <a href="#" class="nav-link">Resources</a>
+                    <a href="#" class="nav-link">Contact Us</a>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="sign-up">Sign Up</a>
+                    <a href="#" class="login">Login</a>
+                </div>
+            </div>
+        </div>
+
+      
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Van eerste idee <span class="lightning">⚡</span> tot jouw perfecte website
+                    </h1>
+                    <p class="hero-description">
+                        Gratis demo of vrijblijvend gesprek plannen?<br>
+                      
+Laat je e-mail achter, ik neem snel contact met je op
+                    </p>
+                    <div class="email-signup">
+                        <input type="email" class="email-input" placeholder="Laat hier je e-mail achter">
+                        <p class="trial-text">
+                            ✓ Gratis visueel voorbeeld, zonder verplichtingen
+                        </p>
+                        <button class="get-started-btn">
+                            <span class="btn-icon">📩</span>
+                            Start contact
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="ipad-mockup">
+                        <div class="chat-interface">
+                            <div class="chat-header">
+                                <div class="user-avatar">D</div>
+                                <span class="chat-title">KHCustomWeb</span>
+                            </div>
+                            <div class="chat-date">Jan 5, 2024</div>
+                            <div class="chat-message user-message">
+                                Hey Kay, ik zoek een website die écht bij me past.
+                                <div class="message-info">Klant • 14:32</div>
+                            </div>
+                            <div class="chat-message bot-message">
+                                Dat kan. Ik vertaal jouw stijl naar een heldere site.
+                                <div class="message-info">KHCustomWeb • 14:33</div>
+                            </div>
+                            <div class="chat-message user-message">
+                                Kan ik eerst een voorbeeld zien voor ik beslis?
+                                <div class="message-info">Klant • 14:35</div>
+                            </div>
+                            <div class="chat-message bot-message">
+                                Tuurlijk! Je krijgt je gratis demo in 1–2 werkdagen.<br>Laten we samen kijken wat jij voor ogen hebt.
+                                <div class="message-info">KHCustomWeb • 14:36</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Bubbles -->
+                        <div class="floating-bubbles">
+                            <div class="bubble bubble-performance">
+                                <div class="performance-content">
+                                    <span class="performance-number">#1</span>
+                                    <div class="performance-text">
+                                        <div class="performance-title">Best website using</div>
+                                        <div class="performance-subtitle">AI for E-Commerce</div>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <span class="stat-number">9.41</span>
+                                        <span class="stat-percent">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bubble bubble-time">
+                                <div class="time-content">
+                                    <span class="time-icon">📈</span>
+                                    <div class="time-text">
+                                        <div class="time-label">Time increase</div>
+                                        <div class="time-number">5 <span class="time-unit">second</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <!-- Info Boxes -->
+            <div class="info-boxes">
+                <div class="info-box graph-container design-1">
+                    <div class="graph-header">
+                        <h3>Website Bezoekers</h3>
+                        <div class="stats">
+                            <span class="main-number">1465</span>
+                            <span class="percentage positive">+24.7%</span>
+                        </div>
+                    </div>
+                    <div class="graph-area">
+                        <div class="y-axis">
+                            <span>2K</span>
+                            <span>1K</span>
+                            <span>0</span>
+                        </div>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 300 60" class="line-chart">
+                                <defs>
+                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#FF6A3D;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#FF6A3D;stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Chart area fill -->
+                                <path class="chart-area" d="M 0 45 L 75 38 L 150 32 L 225 28 L 300 15 L 300 60 L 0 60 Z" fill="url(#chartGradient)"/>
+                                <!-- Chart line -->
+                                <path class="chart-line" d="M 0 45 L 75 38 L 150 32 L 225 28 L 300 15" stroke="#FF6A3D" stroke-width="2" fill="none"/>
+                                <!-- Interactive data points -->
+                                <circle class="data-point" cx="0" cy="45" data-value="1180" data-date="jul 1"></circle>
+                                <circle class="data-point" cx="75" cy="38" data-value="1285" data-date="jul 15"></circle>
+                                <circle class="data-point" cx="150" cy="32" data-value="1350" data-date="aug 1"></circle>
+                                <circle class="data-point" cx="225" cy="28" data-value="1420" data-date="aug 15"></circle>
+                                <circle class="data-point" cx="300" cy="15" data-value="1465" data-date="aug 30"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="time-labels">
+                        <span>jul 2025</span>
+                        <span>aug 2025</span>
+                    </div>
+                </div>
+                
+                <div class="info-box design-pagespeed-friendly">
+                    <div class="graph-header">
+                        <h3>Website Snelheid KHCustomWeb</h3>
+                        <div class="stats">
+                            <div class="score-circle">
+                                <div class="score-number">100</div>
+                                <div class="score-label">Perfect!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speed-metrics">
+                        <div class="speed-item">
+                            <div class="speed-icon">⚡</div>
+                            <div class="speed-info">
+                                <div class="speed-label">Laadtijd</div>
+                                <div class="speed-value">0,5 sec</div>
+                            </div>
+                        </div>
+                        <div class="speed-item">
+                            <div class="speed-icon">🎯</div>
+                            <div class="speed-info">
+                                <div class="speed-label">Stabiliteit</div>
+                                <div class="speed-value">Uitstekend</div>
+                            </div>
+                        </div>
+                        <div class="speed-item">
+                            <div class="speed-icon">🔍</div>
+                            <div class="speed-info">
+                                <div class="speed-label">SEO Score</div>
+                                <div class="speed-value">94/100</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagespeed-footer">
+                        <span>KHCustomWeb - augustus 2025</span>
+                    </div>
+                </div>
+                
+                <div class="info-box design-blog-post">
+                    <div class="blog-header">
+                        <div class="blog-category">Webdesign</div>
+                        <div class="blog-date">15 augustus 2024</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">5 Tips voor Snellere Websites in 2024</h3>
+                        <p class="blog-summary">Ontdek de nieuwste technieken om je website razendsnel te maken. Van optimalisatie tot moderne frameworks...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar">KH</div>
+                                <span>Kevin Hendriks</span>
+                            </div>
+                            <button class="blog-read-more">Lees meer →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Design 2: Twee-kolommen Layout -->
+    <div id="design2" class="design-container">
+        <div class="hero-section-2">
+            <div class="container">
+                <div class="two-column">
+                    <div class="left-column">
+                        <h2>Eerst zien hoe jouw nieuwe website eruitziet?</h2>
+                        <p>Binnen 1–2 dagen zie je al hoe jouw toekomstige homepage eruit kan zien — afgestemd op jouw huisstijl, stijlgevoel en doelen.</p>
+                        <div class="highlight-box">
+                            <h3>Waarom gratis?</h3>
+                            <p>Omdat ik geloof in helderheid vanaf het begin. Puur design, structuur en uitstraling — zo kun je in alle rust bepalen of het iets voor je is.</p>
+                        </div>
+                        <a href="#contact" class="cta-button-2">Start jouw gratis demo</a>
+                    </div>
+                    
+                    <div class="right-column">
+                        <div class="benefits-card">
+                            <h3>Wat je ontvangt:</h3>
+                            <div class="benefit-item">
+                                <div class="icon">✓</div>
+                                <div class="text">
+                                    <strong>Visueel voorbeeld</strong>
+                                    <span>Van je homepage</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="icon">✓</div>
+                                <div class="text">
+                                    <strong>Volledig op maat</strong>
+                                    <span>Kleuren, opmaak en stijl</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="icon">✓</div>
+                                <div class="text">
+                                    <strong>1–2 werkdagen</strong>
+                                    <span>Supersnelle levering</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="icon">✓</div>
+                                <div class="text">
+                                    <strong>Geen verplichtingen</strong>
+                                    <span>100% gratis – écht</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="why-choose-section variant-2">
+        <div class="container">
+            <div class="section-header">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>Waarom kiezen voor KHCustomWeb?</h2>
+                        <div class="value-prop">
+                            <span class="highlight">Eerlijk. Betaalbaar. En precies zoals jij het wilt.</span>
+                        </div>
+                        <div class="intro-text">
+                            <p>Ik geloof niet in loze beloftes of opgeblazen prijzen. Ik geloof in webdesign dat bij jou past.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="mockup-container">
+                            <div class="device-mockup">
+                                <div class="screen">
+                                    <div class="website-preview">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content">
+                                            <div class="preview-text"></div>
+                                            <div class="preview-text short"></div>
+                                            <div class="preview-button"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="floating-elements">
+                                <div class="speed-badge">
+                                    <span class="icon">⚡</span>
+                                    <span class="text">&lt; 2 sec laadtijd</span>
+                                </div>
+                                <div class="mobile-badge">
+                                    <span class="icon">📱</span>
+                                    <span class="text">100% mobiel</span>
+                                </div>
+                                <div class="code-badge">
+                                    <span class="icon">💻</span>
+                                    <span class="text">Handgemaakte code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+    </div>
+    
+    <div class="trust-elements">
+        <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <span class="trust-text">Website snelheid onder de 2 seconden gegarandeerd!</span>
+        </div>
+        <div class="trust-item">
+            <span class="trust-icon">✅</span>
+            <span class="trust-text">Gratis demo - eerst zien, dan beslissen</span>
+        </div>
+        <div class="trust-item">
+            <span class="trust-icon">🎯</span>
+            <span class="trust-text">Opgeleverd binnen 7 werkdagen</span>
+        </div>
+    </div>
+    
+    <div class="container">
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">🔧</span>
+                        <h3>Maatwerk in echte code</h3>
+                    </div>
+                    <p>Geen pagebuilders of trage templates. Alles handgemaakt — lichtgewicht, schaalbaar en uniek voor jouw merk.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">💻</span>
+                        <h3>Mobielvriendelijk en snel</h3>
+                    </div>
+                    <p>Perfect werkend op alle apparaten. Supersnel, soepel en zonder haperingen voor al je bezoekers.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">📈</span>
+                        <h3>Sterke basis voor vindbaarheid</h3>
+                    </div>
+                    <p>Slimme structuur, goede technische opbouw en optimale laadtijd voor betere online zichtbaarheid.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">💰</span>
+                        <h3>Drie pagina's voor €199</h3>
+                    </div>
+                    <div class="start-now-badge">Start nu</div>
+                    <p>Homepage, contact en een pagina naar keuze. Inclusief SEO, responsive design én snelle oplevering.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">🤝</span>
+                        <h3>Persoonlijk contact</h3>
+                    </div>
+                    <p>Echt luisteren, geen standaardtraject. 1-op-1 begeleiding en meedenken in jouw proces.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <span class="icon">✨</span>
+                        <h3>Eerst zien, dan beslissen</h3>
+                    </div>
+                    <p>Gratis demo beschikbaar. Zie hoe jouw website eruit kan zien zonder verplichtingen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Kay Huybreghs Profile Section -->
+    <section class="kay-hero">
+        <div class="container">
+            <div class="kay-hero-content">
+                <div class="kay-image-bubble kay-image-bubble-1">
+                    <img src="/Foto/Wireframe-khcustomweb.webp" alt="Wireframe van KH Custom Web" loading="lazy" width="300" height="300">
+                </div>
+                <div class="kay-image-bubble kay-image-bubble-2">
+                    <img src="/Foto/laptopscherm-met-codeertaal.webp" alt="Laptopscherm met codeertaal" loading="lazy" width="300" height="300">
+                </div>
+                <div class="kay-hero-left">
+                    <div class="kay-profile-section">
+                        <div class="kay-profile-image-placeholder">
+                            <img src="/Foto/Aboutme-picture-kay.webp" alt="Portret van Kay" loading="lazy" width="160" height="160">
+                        </div>
+                        <div class="kay-experience-badge">
+                            <i class="fas fa-star"></i>
+                            4 jaar actief in Webdesign
+                        </div>
+                    </div>
+                    <h1 class="kay-title">Hoi, ik ben <span class="kay-highlight">Kay Huybreghs</span></h1>
+                    <p class="kay-intro">20 jaar en geboren in Venlo. Onder de naam <strong>KHCustomWeb</strong> help ik ondernemers aan een website die niet alleen mooi is, maar ook supersnel laadt, goed werkt op ieder apparaat en vindbaar is in Google.</p>
+                    
+                    <div class="kay-cta-section">
+                        <button class="kay-cta-button primary">
+                            <i class="fas fa-play"></i>
+                            Vraag een gratis demo aan
+                        </button>
+                        <a href="https://linkedin.com/in/kay-huybreghs" target="_blank" class="kay-linkedin-button">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div class="kay-hero-right">
+                    <div class="kay-info-cards">
+                        <div class="kay-info-card">
+                            <div class="kay-card-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="kay-feature-badge">Supersnel Laden</div>
+                            <h3>Passie voor Design</h3>
+                            <p>Webdesign is voor mij geen 'klus', maar iets waar ik écht plezier in heb. Ik vind het leuk om samen te sparren over jouw ideeën.</p>
+                        </div>
+
+                        <div class="kay-info-card">
+                            <div class="kay-card-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="kay-feature-badge">Responsive Design</div>
+                            <h3>Schone Code</h3>
+                            <p>Geen ingewikkeld gedoe, geen overbodige toeters en bellen – gewoon een strakke, op maat gemaakte website met schone HTML, CSS en JavaScript.</p>
+                        </div>
+
+                        <div class="kay-info-card">
+                            <div class="kay-card-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="kay-feature-badge">SEO Geoptimaliseerd</div>
+                            <h3>Persoonlijke Aanpak</h3>
+                            <p>Ik werk graag persoonlijk en betrokken. Ik verdiep me in wie jij bent, wat je wilt uitstralen en welke klanten je wilt aantrekken.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step Boxes Section -->
+    <section class="classic">
+        <div class="container">
+            <div class="classic-header">
+                <h2 class="section-title">Uw Website in 6 Eenvoudige Stappen</h2>
+                <p class="section-subtitle">Van eerste contact tot online succes - wij begeleiden u door het hele proces</p>
+            </div>
+            <div class="classic-grid">
+                <div class="step-card classic-card">
+                    <div class="info-badge">GRATIS</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">01</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Vraag een gratis demo aan</h3>
+                    <p>Start uw reis naar een professionele website met een vrijblijvende demo aanvraag. Geen verplichtingen, alleen mogelijkheden om uw digitale dromen waar te maken.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 16.66%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-card classic-card">
+                    <div class="info-badge">STAP 2</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">02</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Personaliseer uw strategie</h3>
+                    <p>Werk samen met onze AI-experts om een op maat gemaakte e-commerce strategie te ontwikkelen die perfect aansluit bij uw bedrijfsdoelen en doelgroep.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 33.33%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-card classic-card">
+                    <div class="info-badge">STAP 3</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">03</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Implementatie & Launch</h3>
+                    <p>Onze technische specialisten zorgen voor een naadloze implementatie van uw AI-gestuurde e-commerce oplossing, klaar voor succes.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-card classic-card">
+                    <div class="info-badge">STAP 4</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">04</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Training & Optimalisatie</h3>
+                    <p>Uw team wordt volledig getraind in het gebruik van de AI-tools. We optimaliseren continu de prestaties voor maximale resultaten en ROI.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 66.66%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-card classic-card">
+                    <div class="info-badge">STAP 5</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">05</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Monitoring & Analytics</h3>
+                    <p>Realtime monitoring van uw AI-prestaties met uitgebreide analytics. Krijg inzicht in klantgedrag en optimaliseer uw conversies.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 83.33%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-card classic-card">
+                    <div class="info-badge">SUCCES</div>
+                    <div class="card-icon">
+                        <div class="icon-circle">
+                            <div class="step-number">06</div>
+                        </div>
+                        <div class="icon-decoration"></div>
+                    </div>
+                    <h3>Doorlopende Ondersteuning</h3>
+                    <p>24/7 support en continue updates zorgen ervoor dat uw AI-gestuurde e-commerce platform altijd optimaal presteert en groeit met uw bedrijf.</p>
+                    <div class="card-footer">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Design 1: Diagonale kaarten -->
+    <section class="design-section active" id="design1">
+        <div class="container">
+            <div class="section-header">
+                <h2>Voor wie is deze aanpak?</h2>
+                <p class="intro-quote">Niet iedereen is mijn klant — en dat is precies de bedoeling.</p>
+                <p class="sub-intro">Ik bouw websites voor ondernemers die het anders willen. Die geen zin hebben in gedoe, die snelheid waarderen, en die snappen dat hun website hun eerste indruk is. Als jij gelooft in overzicht, duidelijkheid en een website die je trots laat zeggen: "Ja, dit is van mij" — dan pas ik perfect bij jou.</p>
+            </div>
+            
+            <div class="diagonal-container">
+                <div class="help-intro">👥 Wie ik het meest help:</div>
+                
+                <div class="diagonal-grid">
+                    <div class="diagonal-card card-1">
+                        <div class="card-content">
+                            <h3>ZZP'ers & freelancers</h3>
+                            <p>Alles komt op jouw bordje terecht. Je hebt geen zin in technische rompslomp, maar wél behoefte aan een site die vertrouwen wekt. Ik zorg dat je er staat — <strong>zonder gedoe</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagonal-card card-2">
+                        <div class="card-content">
+                            <h3>MKB'ers & bedrijven</h3>
+                            <p>Je bedrijf groeit en je site moet dat bijhouden. Ik bouw iets wat je merk versterkt: <strong>snel online</strong>, mobielvriendelijk en geoptimaliseerd voor Google.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagonal-card card-3">
+                        <div class="card-content">
+                            <h3>Startups & scale-ups</h3>
+                            <p>Je hebt vaart nodig, maar geen chaos. Samen bouwen we snel een solide basis, waarmee jij meteen <strong>professioneel voor de dag komt</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ, Blog en Support Sectie -->
+    <div class="s-layout-container">
+        <!-- FAQ Sidebar Links -->
+        <aside class="s-faq-sidebar" id="sFaqSidebar">
+            <div class="s-faq-header">
+                <div class="s-faq-title-wrapper">
+                    <div class="s-faq-icon">
+                        <span>❔</span>
+                    </div>
+                    <div>
+                        <h2>Support Center</h2>
+                        <p>Vind direct antwoord op je vraag of neem contact met me op.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-faq-search">
+                <input type="text" placeholder="Zoek in FAQ..." class="s-search-input" id="sFaqSearchInput">
+                <button class="s-search-btn" id="sFaqSearchBtn">🔍</button>
+            </div>
+
+            <div class="s-faq-categories">
+                <div class="s-category-tab active" data-category="algemeen">
+                    <span class="s-tab-icon">🏠</span>
+                    <h3><span>Algemeen</span></h3>
+                    <span class="s-tab-count">4</span>
+                </div>
+                <div class="s-category-tab" data-category="prijzen">
+                    <span class="s-tab-icon">💰</span>
+                    <h3><span>Prijzen</span></h3>
+                    <span class="s-tab-count">3</span>
+                </div>
+                <div class="s-category-tab" data-category="technisch">
+                    <span class="s-tab-icon">⚙️</span>
+                    <h3> <span>Technisch</span></h3>
+                    <span class="s-tab-count">5</span>
+                </div>
+            </div>
+
+            <div class="s-faq-content" id="sFaqContentContainer">
+                <!-- Algemeen FAQ Category -->
+                <div id="s-faq-algemeen" class="s-faq-category-content">
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Wat maakt KHCustomWeb anders?</h4>
+                                <div class="s-question-meta">Vaak gevraagd</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Wij maken snelle, veilige en op maat gecodeerde websites zonder onnodige plugins. Altijd SEO-geoptimaliseerd, betaalbaar en met direct persoonlijk contact met de webdesigner.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Hoe verloopt het proces?</h4>
+                                <div class="s-question-meta">Proces</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>We starten met een gesprek of e-mail om doelen te bepalen. Daarna: offerte, design, development, testen en livegang. Alles volgens ons vaste, transparante stappenplan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Hoe lang duurt een project?</h4>
+                                <div class="s-question-meta">Timing</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Een 3-pagina site is klaar in 5–10 werkdagen. Complexere websites duren 2–4 weken, grote maatwerkprojecten tot 6–8 weken. We houden je altijd op de hoogte.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Bieden jullie ook hosting en onderhoud aan?</h4>
+                                <div class="s-question-meta">Service</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Ja. Voor €15 p/m bieden we snelle hosting, automatische back-ups, updates, beveiliging en technische ondersteuning. Zo blijft je site altijd veilig en online.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prijzen FAQ Category -->
+                <div id="s-faq-prijzen" class="s-faq-category-content s-hidden">
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Wat kosten jullie diensten?</h4>
+                                <div class="s-question-meta">Prijzen</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Websites vanaf €199, standaardpakketten max €499. Uitbreidingen zoals betaal­systemen, extra animaties of geavanceerde SEO mogelijk, afhankelijk van jouw wensen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Zijn er verborgen kosten?</h4>
+                                <div class="s-question-meta">Transparantie</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Nee. We communiceren altijd 100% transparant. Alle kosten en mogelijkheden worden vooraf besproken en vastgelegd in een duidelijke offerte zonder verrassingen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Kan ik in termijnen betalen?</h4>
+                                <div class="s-question-meta">Betaling</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Ja. Standaard 70% bij start en 30% bij oplevering. Voor grotere projecten zijn meer termijnen mogelijk, zodat je flexibel kunt betalen zonder vertraging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technisch FAQ Category -->
+                <div id="s-faq-technisch" class="s-faq-category-content s-hidden">
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Welke technologieën gebruiken jullie?</h4>
+                                <div class="s-question-meta">Tech Stack</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>We werken met HTML5, CSS3, JavaScript en Vite voor razendsnelle, veilige en duurzame websites die lang meegaan en eenvoudig uit te breiden zijn.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Is mijn website mobielvriendelijk?</h4>
+                                <div class="s-question-meta">Responsive</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Ja. Elke site is volledig responsive en geoptimaliseerd voor mobiel, tablet en desktop, zodat je website er overal professioneel uitziet en goed presteert.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Hoe zit het met hosting?</h4>
+                                <div class="s-question-meta">Hosting</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>We hosten standaard via Vercel, een snelle en betrouwbare partij. Wil je zelf hosten? Dan leveren wij alle bestanden en begeleiden we de installatie.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Krijg ik toegang tot de broncode?</h4>
+                                <div class="s-question-meta">Eigendom</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Ja. Je ontvangt alle bronbestanden, code en rechten. Optioneel voegen we je toe aan Google Analytics en Search Console voor volledige datacontrole.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-faq-item">
+                        <div class="s-faq-question-wrapper">
+                            <div class="s-question-indicator">
+                                <span class="s-indicator-dot"></span>
+                            </div>
+                            <div class="s-question-content">
+                                <h4>Hoe zit het met SEO?</h4>
+                                <div class="s-question-meta">SEO</div>
+                            </div>
+                            <div class="s-expand-btn">+</div>
+                        </div>
+                        <div class="s-faq-answer-wrapper">
+                            <div class="s-faq-answer">
+                                <p>Basis SEO voor €100 eenmalig, inclusief technische optimalisatie. Uitgebreid SEO-traject beschikbaar voor wie gericht hoog wil scoren in zoekresultaten.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-faq-cta">
+                <div class="s-cta-content">
+                    <h4>Nog vragen?</h4>
+                    <p>Plan een gratis gesprek</p>
+                    <button class="s-cta-button">
+                        <span>📞</span>
+                        <span>Bel mij terug</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Compacte Blog Section -->
+        <main class="s-blog-main">
+            <div class="s-blog-header">
+                <h2>Laatste Blog Posts</h2>
+                <p>Tips, trends en inzichten voor moderne websites</p>
+            </div>
+
+            <div class="s-blog-grid">
+                <!-- Featured Blog Card -->
+                <article class="s-featured-blog" onclick="window.location.href='#'">
+                    <div class="s-blog-badge">
+                        <span>🔥 FEATURED</span>
+                    </div>
+                    <div class="s-blog-content">
+                        <div class="s-blog-category featured">TRENDING</div>
+                        <h2>Complete Gids voor Website Performance in 2024</h2>
+                        <p>Ontdek de nieuwste technieken om je website razendsnel te maken. Van Core Web Vitals tot moderne optimalisatie strategieën.</p>
+                        <div class="s-blog-metadata">
+                            <div class="s-author-info">
+                                <div class="s-author-avatar">KH</div>
+                                <div class="s-author-details">
+                                    <span class="s-author-name">Kay Huybreghs</span>
+                                    <span class="s-publish-date">20 augustus 2024</span>
+                                </div>
+                            </div>
+                            <div class="s-blog-stats">
+                                <span class="s-read-time">8 min lezen</span>
+                                <span class="s-views">2.1k views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="s-blog-image">
+                        <img src="/Foto/khcustomweb-design-tips.webp" alt="Design tips van KHCustomWeb" loading="lazy" width="600" height="400">
+                        <img src="/Foto/schoon-coderen.webp" alt="Schoon coderen concept" loading="lazy" width="600" height="400">
+
+                        <button class="s-read-more-corner">Lees meer</button>
+                    </div>
+                </article>
+
+                <!-- Informatieve Blog Cards -->
+                <article class="s-info-blog">
+                    <div class="s-blog-content">
+                        <div class="s-blog-category design">UX DESIGN</div>
+                        <h2>Micro-animaties die Conversie Verhogen</h2>
+                        <p>Kleine details maken het verschil. Leer hoe subtiele animaties de gebruikservaring kunnen verbeteren en meer bezoekers kunnen converteren.</p>
+                        <div class="s-blog-footer">
+                            <span class="s-read-time">5 min lezen</span>
+                            <span class="s-blog-link">Lees meer →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="s-info-blog">
+                    <div class="s-blog-content">
+                        <div class="s-blog-category seo">SEO TIPS</div>
+                        <h2>Local SEO: Vindbaar in je Regio</h2>
+                        <p>Zorg ervoor dat lokale klanten je gemakkelijk kunnen vinden. Praktische tips voor betere lokale zoekmachine rankings.</p>
+                        <div class="s-blog-footer">
+                            <span class="s-read-time">6 min lezen</span>
+                            <span class="s-blog-link">Lees meer →</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="s-blog-cta">
+                <div class="s-blog-cta-content">
+                    <h3>Meer interessante artikelen</h3>
+                    <p>Ontdek alle tips, trends en inzichten voor moderne websites</p>
+                    <button class="s-blog-cta-button">
+                        <span>📚</span>
+                        <span>Bekijk alle blog posts</span>
+                        <span class="s-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Support Sidebar Rechts -->
+        <aside class="s-support-sidebar">
+            <!-- Langwerpige CTA -->
+            <div class="s-newsletter-cta">
+                <div class="s-cta-content">
+                    <h3>Blijf op de hoogte</h3>
+                    <p>Ontvang wekelijks de nieuwste tips en trends</p>
+                </div>
+                <form id="sNewsletter" action="https://formsubmit.co/77b6b2564f5f811cd6104f2c7e7dc1e2" method="POST" novalidate class="s-cta-form">
+                    <input type="email" name="email" placeholder="je@email.com" class="s-cta-input" required>
+                    <!-- vaste onderwerpregel -->
+                    <input type="hidden" name="subject" value="Nieuwsbrief inschrijving">
+                    <!-- optioneel: FormSubmit captcha uit -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="s-cta-btn">Abonneren</button>
+                </form>
+            </div>
+
+            <!-- Support Center -->
+            <div class="s-support-section">
+                <div class="s-support-header">
+                    <div class="s-support-icon">
+                        <span>🎯</span>
+                    </div>
+                    <div>
+                        <h2>Onze Diensten</h2>
+                        <p>Alles voor jouw online succes</p>
+                    </div>
+                </div>
+                
+                <div class="s-support-cards">
+                    <div class="s-support-card">
+                        <div class="s-support-card-icon">
+                            <span>🚀</span>
+                        </div>
+                        <h3>Website Development</h3>
+                        <p>Custom websites die converteren</p>
+                        <div class="s-service-price">Vanaf €999</div>
+                        <div class="s-service-cta-badge">
+                            <span>Bekijk prijzen →</span>
+                        </div>
+                    </div>
+
+                    <div class="s-support-card popular">
+                        <div class="s-popular-badge">POPULAIR</div>
+                        <div class="s-support-card-icon">
+                            <span>📱</span>
+                        </div>
+                        <h3>E-commerce Oplossingen</h3>
+                        <p>Online winkels die verkopen</p>
+                        <div class="s-service-price">Vanaf €1999</div>
+                        <div class="s-service-cta-badge">
+                            <span>Bekijk prijzen →</span>
+                        </div>
+                    </div>
+
+                    <div class="s-support-card">
+                        <div class="s-support-card-icon">
+                            <span>📈</span>
+                        </div>
+                        <h3>SEO Optimalisatie</h3>
+                        <p>Hoger in Google rankings</p>
+                        <div class="s-service-price">Vanaf €299/mnd</div>
+                        <div class="s-service-cta-badge">
+                            <span>Bekijk prijzen →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-testimonial-widget">
+                    <div class="s-demo-title">🔹 Voorbeeldproject Bouw & Techniek Website</div>
+                    <div class="s-testimonial-quote">"Supermooie bouw & techniek demo snel, responsive en SEO-proof."</div>
+                    <div class="s-testimonial-author">
+                        <div class="s-testimonial-avatar">KH</div>
+                        <div class="s-testimonial-info">
+                            <span class="s-testimonial-name">KHCustomWeb Demo</span>
+                            <span class="s-testimonial-company">Bouw & Techniek</span>
+                        </div>
+                    </div>
+                    <div class="s-testimonial-rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <button class="s-demo-cta-button">
+                        Bekijk deze demo website →
+                    </button>
+                </div>
+
+                <div class="s-cta-widget">
+                    <h4>Klaar om te groeien?</h4>
+                    <p>Laten we jouw project bespreken</p>
+                    <button class="s-cta-primary">
+                        <span>✨</span>
+                        <span>Start jouw project</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Popup -->
+    <div id="sNlModal" aria-hidden="true">
+        <div class="s-modal-content">
+            <h3>Bedankt! 🎉</h3>
+            <p>Je e-mail is ontvangen. Je hoort snel van me.</p>
+            <button id="sNlClose">Sluiten</button>
+        </div>
+    </div>
+</body>
+</html>

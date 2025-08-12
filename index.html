@@ -245,32 +245,6 @@
         }
     `;
 
-    // Check if the viewport width is considered mobile (e.g., <= 768px)
-    // Je kunt '768' aanpassen als je een ander breakpoint voor mobiel wilt gebruiken.
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-        // For mobile: Inject critical CSS directly
-        const styleTag = document.createElement('style');
-        styleTag.textContent = criticalCss;
-        document.head.appendChild(styleTag);
-
-        // For mobile: Load the main stylesheet asynchronously
-        const linkTag = document.createElement('link');
-        linkTag.rel = 'stylesheet';
-        linkTag.href = '/style.css';
-        linkTag.media = 'print'; // Initially set to 'print' to prevent render-blocking
-        linkTag.onload = function() {
-            this.media = 'all'; // Change to 'all' once loaded
-        };
-        document.head.appendChild(linkTag);
-    } else {
-        // For desktop: Load the main stylesheet normally
-        const linkTag = document.createElement('link');
-        linkTag.rel = 'stylesheet';
-        linkTag.href = '/style.css';
-        document.head.appendChild(linkTag);
-    }
 </script>
 
     <!-- Zorg ervoor dat main.js nog steeds wordt geladen, bij voorkeur met 'defer' -->

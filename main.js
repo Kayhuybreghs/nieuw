@@ -45,6 +45,5 @@ if (bubblesEl && hasHover && !isMobile) {
   const start = () => import('./floating-bubbles.js').then(m => m.initBubbles?.(bubblesEl))
   requestAnimationFrame(() => requestAnimationFrame(start)) // praktisch “direct”
 }
-
-// MOBIEL: niet laden (doen we niets)
+  }
 }

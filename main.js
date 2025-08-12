@@ -44,6 +44,6 @@ const bubblesEl = document.querySelector('[data-bubbles]')
 if (bubblesEl && hasHover && !isMobile) {
   const start = () => import('./floating-bubbles.js').then(m => m.initBubbles?.(bubblesEl))
   requestAnimationFrame(() => requestAnimationFrame(start)) // praktisch “direct”
-}
+
   }
 }
